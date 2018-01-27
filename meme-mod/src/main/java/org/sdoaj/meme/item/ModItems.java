@@ -4,9 +4,9 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ModItems {
-    public static BasicItem thonk = new BasicItem("thonk");
-    public static BasicItem lesser_meme_essence = new BasicItem("lesser_meme_essence");
-    public static BasicItem greater_meme_essence = new BasicItem("greater_meme_essence");
+    public static ItemBasic thonk = new ItemBasic("thonk");
+    public static ItemBasic lesser_meme_essence = new ItemBasic("lesser_meme_essence");
+    public static ItemBasic greater_meme_essence = new ItemBasic("greater_meme_essence");
 
     @SideOnly(Side.CLIENT)
     public static void initModels() {

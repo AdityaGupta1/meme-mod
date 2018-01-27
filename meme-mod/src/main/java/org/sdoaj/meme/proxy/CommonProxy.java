@@ -1,4 +1,4 @@
-package org.sdoaj.meme;
+package org.sdoaj.meme.proxy;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;

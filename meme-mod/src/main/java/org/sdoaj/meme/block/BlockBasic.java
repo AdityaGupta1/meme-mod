@@ -8,13 +8,17 @@ import net.minecraft.item.Item;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import org.sdoaj.meme.misc.ModCreativeTabs;
 
-public class BasicBlock extends Block {
-    public BasicBlock(String name, Material material) {
+public class BlockBasic extends Block {
+    public BlockBasic(String name, Material material, float hardness, float resistance, String toolClass, int harvestLevel) {
         super(material);
         setRegistryName(name);
         setUnlocalizedName(name);
-        setCreativeTab(CreativeTabs.MISC);
+        setHardness(hardness);
+        setResistance(resistance);
+        setHarvestLevel(toolClass, harvestLevel);
+        setCreativeTab(ModCreativeTabs.tabMeme);
     }
 
     @SideOnly(Side.CLIENT)

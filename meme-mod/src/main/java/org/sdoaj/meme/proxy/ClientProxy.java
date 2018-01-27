@@ -1,4 +1,4 @@
-package org.sdoaj.meme;
+package org.sdoaj.meme.proxy;
 
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.fml.common.Mod;

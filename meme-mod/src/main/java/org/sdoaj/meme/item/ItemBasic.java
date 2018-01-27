@@ -1,17 +1,17 @@
 package org.sdoaj.meme.item;
 
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import org.sdoaj.meme.misc.ModCreativeTabs;
 
-public class BasicItem extends Item {
-    public BasicItem(String name) {
+public class ItemBasic extends Item {
+    public ItemBasic(String name) {
         setRegistryName(name);
         setUnlocalizedName(name);
-        setCreativeTab(CreativeTabs.MISC);
+        setCreativeTab(ModCreativeTabs.tabMeme);
     }
 
     @SideOnly(Side.CLIENT)

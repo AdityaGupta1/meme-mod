@@ -1,5 +1,6 @@
 item.thonk.name=Thonk
 item.lesser_meme_essence.name=Lesser Meme Essence
-item.greater_meme_essence=Greater Meme Essence
-block.meme_machine.name=Meme Machine
-block.meme_ore.name=Meme Ore
+item.greater_meme_essence.name=Greater Meme Essence
+tile.meme_machine.name=Meme Machine
+tile.meme_ore.name=Meme Ore
+itemGroup.tabMeme=Meme Mod
