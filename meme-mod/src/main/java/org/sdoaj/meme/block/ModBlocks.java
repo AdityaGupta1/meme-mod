@@ -6,9 +6,11 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ModBlocks {
     public static BasicBlock meme_machine = new BasicBlock("meme_machine", Material.IRON);
+    public static BasicBlock meme_ore = new BasicBlock("meme_ore", Material.ROCK);
 
     @SideOnly(Side.CLIENT)
     public static void initModels() {
         meme_machine.initModel();
+        meme_ore.initModel();
     }
 }

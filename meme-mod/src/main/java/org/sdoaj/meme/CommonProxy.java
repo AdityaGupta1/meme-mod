@@ -13,6 +13,8 @@ import net.minecraftforge.registries.IForgeRegistry;
 import org.sdoaj.meme.block.ModBlocks;
 import org.sdoaj.meme.item.ModItems;
 
+import java.util.ArrayList;
+
 @Mod.EventBusSubscriber
 public class CommonProxy {
     public void preInit(FMLPreInitializationEvent event) {
@@ -27,11 +29,19 @@ public class CommonProxy {
 
     }
 
+    private static ArrayList<Block> blocks = new ArrayList<Block>();
+
+    private static void registerBlock(Block block, IForgeRegistry<Block> registry) {
+        registry.register(block);
+        blocks.add(block);
+    }
+
     @SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
         IForgeRegistry<Block> registry = event.getRegistry();
 
-        registry.register(ModBlocks.meme_machine);
+        registerBlock(ModBlocks.meme_machine, registry);
+        registerBlock(ModBlocks.meme_ore, registry);
     }
 
     @SubscribeEvent
@@ -41,10 +51,16 @@ public class CommonProxy {
         registerItemBlocks(registry);
 
         registry.register(ModItems.thonk);
+        registry.register(ModItems.lesser_meme_essence);
+        registry.register(ModItems.greater_meme_essence);
     }
 
-    public static void registerItemBlocks(IForgeRegistry<Item> registry) {
-        registry.register(new ItemBlock(ModBlocks.meme_machine).setRegistryName(ModBlocks.meme_machine.getRegistryName()));
+    private static void registerItemBlocks(IForgeRegistry<Item> registry) {
+        System.out.println(blocks);
+
+        for (Block block : blocks) {
+            registry.register(new ItemBlock(block).setRegistryName(block.getRegistryName()));
+        }
     }
 }
 
