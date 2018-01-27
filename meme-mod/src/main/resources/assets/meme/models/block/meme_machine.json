@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "up": "meme:blocks/meme_machine_top",
+    "north": "meme:blocks/meme_machine_side",
+    "east": "meme:blocks/meme_machine_side",
+    "south": "meme:blocks/meme_machine_side",
+    "west": "meme:blocks/meme_machine_side",
+    "down": "meme:blocks/meme_machine_top",
+    "particle": "meme:blocks/meme_machine_top"
+  }
+}

@@ -1,11 +1,12 @@
-package org.sdoaj.mememod;
+package org.sdoaj.meme;
 
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
-import org.sdoaj.mememod.item.ModItems;
+import org.sdoaj.meme.block.ModBlocks;
+import org.sdoaj.meme.item.ModItems;
 
 @Mod.EventBusSubscriber(Side.CLIENT)
 public class ClientProxy extends CommonProxy {
@@ -17,5 +18,6 @@ public class ClientProxy extends CommonProxy {
     @SubscribeEvent
     public static void registerModels(ModelRegistryEvent event) {
         ModItems.initModels();
+        ModBlocks.initModels();
     }
 }

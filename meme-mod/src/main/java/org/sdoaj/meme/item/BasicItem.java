@@ -1,4 +1,4 @@
-package org.sdoaj.mememod.item;
+package org.sdoaj.meme.item;
 
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
@@ -6,12 +6,11 @@ import net.minecraft.item.Item;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import org.sdoaj.mememod.Main;
 
 public class BasicItem extends Item {
-    public BasicItem(String unlocalizedName) {
-        setRegistryName(unlocalizedName);
-        setUnlocalizedName(Main.MODID + unlocalizedName);
+    public BasicItem(String name) {
+        setRegistryName(name);
+        setUnlocalizedName(name);
         setCreativeTab(CreativeTabs.MISC);
     }
 

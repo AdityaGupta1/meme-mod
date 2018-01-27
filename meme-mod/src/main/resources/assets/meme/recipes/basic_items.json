@@ -1,0 +1,28 @@
+{
+  "result": {
+    "item": "meme:thonk"
+  },
+  "pattern": [
+    "byb",
+    "ydb",
+    "oyy"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "b": {
+      "type": "forge:ore_dict",
+      "ore": "dyeBrown"
+    },
+    "y": {
+      "type": "forge:ore_dict",
+      "ore": "dyeYellow"
+    },
+    "d": {
+      "item": "minecraft:diamond"
+    },
+    "o": {
+      "type": "forge:ore_dict",
+      "ore": "dyeOrange"
+    }
+  }
+}

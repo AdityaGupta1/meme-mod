@@ -1,4 +1,4 @@
-package org.sdoaj.mememod;
+package org.sdoaj.meme;
 
 public class ServerProxy extends CommonProxy {
 

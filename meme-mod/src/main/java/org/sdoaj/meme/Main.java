@@ -1,4 +1,4 @@
-package org.sdoaj.mememod;
+package org.sdoaj.meme;
 
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -9,11 +9,11 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 @Mod(modid = Main.MODID, name = Main.MODNAME, version = Main.VERSION, useMetadata = true)
 public class Main {
 
-    public static final String MODID = "meme-mod";
+    public static final String MODID = "meme";
     public static final String MODNAME = "Meme Mod";
     public static final String VERSION = "0.0.1";
 
-    @SidedProxy(clientSide = "org.sdoaj.mememod.ClientProxy", serverSide = "org.sdoaj.mememod.ServerProxy")
+    @SidedProxy(clientSide = "org.sdoaj.meme.ClientProxy", serverSide = "org.sdoaj.meme.ServerProxy")
     public static CommonProxy proxy;
 
     @Mod.Instance
