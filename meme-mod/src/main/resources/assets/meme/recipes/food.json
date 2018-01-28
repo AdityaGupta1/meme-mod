@@ -1,25 +1,25 @@
 {
   "result": {
-    "item": "meme:thonk"
+    "item": "meme:tide_pod"
   },
   "pattern": [
-    "byb",
-    "yEb",
-    "oyy"
+    "gbb",
+    "oEb",
+    "oog"
   ],
   "type": "minecraft:crafting_shaped",
   "key": {
     "b": {
       "type": "forge:ore_dict",
-      "ore": "dyeBrown"
-    },
-    "y": {
-      "type": "forge:ore_dict",
-      "ore": "dyeYellow"
+      "ore": "dyeBlue"
     },
     "o": {
       "type": "forge:ore_dict",
       "ore": "dyeOrange"
+    },
+    "g": {
+      "type": "forge:ore_dict",
+      "ore": "dyeLightGray"
     },
     "E": {
       "item": "meme:lesser_meme_essence"

@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "meme:items/lesser_meme_essence"
+    "layer0": "meme:items/tide_pod"
   }
 }

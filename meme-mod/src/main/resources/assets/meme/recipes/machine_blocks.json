@@ -1,0 +1,22 @@
+{
+  "result": {
+    "item": "meme:deep_fryer"
+  },
+  "pattern": [
+    "bbb",
+    "BEB",
+    "BBB"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "b": {
+      "item": "minecraft:iron_bars"
+    },
+    "B": {
+      "item": "minecraft:iron_block"
+    },
+    "E": {
+      "item": "meme:greater_meme_essence"
+    }
+  }
+}

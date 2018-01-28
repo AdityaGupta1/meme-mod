@@ -40,8 +40,9 @@ public class CommonProxy {
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
         IForgeRegistry<Block> registry = event.getRegistry();
 
-        registerBlock(ModBlocks.meme_machine, registry);
         registerBlock(ModBlocks.meme_ore, registry);
+        registerBlock(ModBlocks.meme_machine, registry);
+        registerBlock(ModBlocks.deep_fryer, registry);
     }
 
     @SubscribeEvent
@@ -53,6 +54,7 @@ public class CommonProxy {
         registry.register(ModItems.thonk);
         registry.register(ModItems.lesser_meme_essence);
         registry.register(ModItems.greater_meme_essence);
+        registry.register(ModItems.tide_pod);
     }
 
     private static void registerItemBlocks(IForgeRegistry<Item> registry) {
