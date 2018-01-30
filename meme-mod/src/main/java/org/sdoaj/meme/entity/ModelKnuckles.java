@@ -3,6 +3,7 @@ package org.sdoaj.meme.entity;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
+import org.lwjgl.opengl.GL11;
 
 /**
  * Ugandan Knuckles - SDOAJ
@@ -121,6 +122,9 @@ public class ModelKnuckles extends ModelBase {
 
     @Override
     public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
+        GL11.glPushMatrix();
+        GL11.glRotatef(90, 0, 1, 0); // rotate 90 degrees
+
         this.armLeft1.render(f5);
         this.gloveLeft.render(f5);
         this.armRight1.render(f5);
@@ -147,6 +151,8 @@ public class ModelKnuckles extends ModelBase {
         this.eyeLeft.render(f5);
         this.snoutTip.render(f5);
         this.armRight2.render(f5);
+
+        GL11.glPopMatrix();
     }
 
     /**

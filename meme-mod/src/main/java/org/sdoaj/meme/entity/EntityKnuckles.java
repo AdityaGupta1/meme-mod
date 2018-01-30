@@ -6,6 +6,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.*;
+import net.minecraft.entity.passive.EntityPig;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.util.DamageSource;
@@ -22,30 +23,28 @@ public class EntityKnuckles extends EntityCreature implements IRangedAttackMob
 {
     private boolean didSpit;
 
-    public EntityKnuckles(World worldIn)
+    public EntityKnuckles(World world)
     {
-        super(worldIn);
+        super(world);
     }
 
     protected void initEntityAI()
     {
         this.tasks.addTask(0, new EntityAISwimming(this));
         this.tasks.addTask(1, new EntityAIAttackRanged(this, 1.25D, 40, 20.0F));
+        this.tasks.addTask(1, new EntityAIPanic(this, 1.2D));
         this.tasks.addTask(2, new EntityAIWanderAvoidWater(this, 0.7D));
         this.tasks.addTask(3, new EntityAIWatchClosest(this, EntityPlayer.class, 6.0F));
         this.tasks.addTask(4, new EntityAILookIdle(this));
         this.targetTasks.addTask(1, new EntityKnuckles.AIHurtByTarget(this));
+        this.targetTasks.addTask(2, new EntityKnuckles.AIDefendTarget(this));
     }
 
     protected void applyEntityAttributes()
     {
         super.applyEntityAttributes();
+        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.23000000417232513D);
         this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(40.0D);
-    }
-
-    protected SoundEvent getAngrySound()
-    {
-        return SoundEvents.ENTITY_LLAMA_ANGRY;
     }
 
     protected SoundEvent getAmbientSound()
@@ -68,16 +67,6 @@ public class EntityKnuckles extends EntityCreature implements IRangedAttackMob
         this.playSound(SoundEvents.ENTITY_LLAMA_STEP, 0.15F, 1.0F);
     }
 
-    public void makeMad()
-    {
-        SoundEvent soundevent = this.getAngrySound();
-
-        if (soundevent != null)
-        {
-            this.playSound(soundevent, this.getSoundVolume(), this.getSoundPitch());
-        }
-    }
-
     @Nullable
     protected ResourceLocation getLootTable()
     {
@@ -97,9 +86,9 @@ public class EntityKnuckles extends EntityCreature implements IRangedAttackMob
         this.didSpit = true;
     }
 
-    private void setDidSpit(boolean didSpitIn)
+    private void setDidSpit(boolean didSpit)
     {
-        this.didSpit = didSpitIn;
+        this.didSpit = didSpit;
     }
 
     public void fall(float distance, float damageMultiplier)
@@ -143,8 +132,7 @@ public class EntityKnuckles extends EntityCreature implements IRangedAttackMob
     @Override
     public void setSwingingArms(boolean swingingArms) {}
 
-    static class AIHurtByTarget extends EntityAIHurtByTarget
-    {
+    static class AIHurtByTarget extends EntityAIHurtByTarget {
         public AIHurtByTarget(EntityKnuckles knuckles)
         {
             super(knuckles, false);
@@ -153,14 +141,11 @@ public class EntityKnuckles extends EntityCreature implements IRangedAttackMob
         /**
          * Returns whether an in-progress EntityAIBase should continue executing
          */
-        public boolean shouldContinueExecuting()
-        {
-            if (this.taskOwner instanceof EntityKnuckles)
-            {
+        public boolean shouldContinueExecuting() {
+            if (this.taskOwner instanceof EntityKnuckles) {
                 EntityKnuckles knuckles = (EntityKnuckles)this.taskOwner;
 
-                if (knuckles.didSpit)
-                {
+                if (knuckles.didSpit) {
                     knuckles.setDidSpit(false);
                     return false;
                 }
@@ -169,4 +154,28 @@ public class EntityKnuckles extends EntityCreature implements IRangedAttackMob
             return super.shouldContinueExecuting();
         }
     }
+
+    static class AIDefendTarget extends EntityAINearestAttackableTarget<EntityPig> {
+        public AIDefendTarget(EntityKnuckles knuckles) {
+            super(knuckles, EntityPig.class, 16, false, true, null);
+        }
+
+        /**
+         * Returns whether the EntityAIBase should begin execution.
+         */
+        public boolean shouldExecute() {
+            if (super.shouldExecute() && this.targetEntity != null) {
+                return true;
+            } else {
+                this.taskOwner.setAttackTarget(null);
+                return false;
+            }
+        }
+
+        protected double getTargetDistance()
+        {
+            return super.getTargetDistance() * 0.25D;
+        }
+    }
+
 }

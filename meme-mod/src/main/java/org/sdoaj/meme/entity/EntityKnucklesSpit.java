@@ -1,12 +1,8 @@
 package org.sdoaj.meme.entity;
 
-import java.util.List;
-import java.util.UUID;
-import javax.annotation.Nullable;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.IProjectile;
-import net.minecraft.entity.passive.EntityLlama;
+import net.minecraft.entity.projectile.EntityLlamaSpit;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumParticleTypes;
@@ -18,8 +14,11 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class EntityKnucklesSpit extends Entity implements IProjectile
-{
+import javax.annotation.Nullable;
+import java.util.List;
+import java.util.UUID;
+
+public class EntityKnucklesSpit extends EntityLlamaSpit {
     public EntityKnuckles owner;
     private NBTTagCompound ownerNbt;
 
