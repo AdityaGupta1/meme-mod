@@ -11,6 +11,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.registries.IForgeRegistry;
 import org.sdoaj.meme.block.ModBlocks;
+import org.sdoaj.meme.entity.ModEntities;
 import org.sdoaj.meme.item.ModItems;
 
 import java.util.ArrayList;
@@ -18,7 +19,7 @@ import java.util.ArrayList;
 @Mod.EventBusSubscriber
 public class CommonProxy {
     public void preInit(FMLPreInitializationEvent event) {
-
+        ModEntities.init();
     }
 
     public void init(FMLInitializationEvent event) {
@@ -29,7 +30,7 @@ public class CommonProxy {
 
     }
 
-    private static ArrayList<Block> blocks = new ArrayList<Block>();
+    private static ArrayList<Block> blocks = new ArrayList<>();
 
     private static void registerBlock(Block block, IForgeRegistry<Block> registry) {
         registry.register(block);

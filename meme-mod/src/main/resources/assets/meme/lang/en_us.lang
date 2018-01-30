@@ -7,4 +7,6 @@ tile.meme_ore.name=Meme Ore
 tile.meme_machine.name=Meme Machine
 tile.deep_fryer.name=Deep Fryer
 
+entity.knuckles.name=Ugandan Knuckles
+
 itemGroup.tabMeme=Meme Mod
