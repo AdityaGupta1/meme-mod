@@ -1,0 +1,14 @@
+{
+  "knuckles_ambient": {
+    "category": "ambient",
+    "sounds": [
+      "meme:knuckles_ambient"
+    ]
+  },
+  "knuckles_hurt": {
+    "category": "ambient",
+    "sounds": [
+      "meme:knuckles_hurt"
+    ]
+  }
+}
