@@ -12,7 +12,7 @@ public class Main {
 
     public static final String MODID = "meme";
     public static final String MODNAME = "Meme Mod";
-    public static final String VERSION = "0.0.1";
+    public static final String VERSION = "1.12.x-0.1";
 
     @SidedProxy(clientSide = "org.sdoaj.meme.proxy.ClientProxy", serverSide = "org.sdoaj.meme.proxy.ServerProxy")
     public static CommonProxy proxy;
